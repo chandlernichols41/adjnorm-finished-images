@@ -1,0 +1,49 @@
+category,concept,noun,match_word,mismatch_word,filename,image_url
+color,red apple,the apple,red,green,filler_color_red_apple_pic.png,https://chandlernichols41.github.io/adjnorm-finished-images/filler_color_red_apple_pic.png
+color,blue car,the car,blue,yellow,filler_color_blue_car_pic.png,https://chandlernichols41.github.io/adjnorm-finished-images/filler_color_blue_car_pic.png
+color,yellow umbrella,the umbrella,yellow,purple,filler_color_yellow_umbrella_pic.png,https://chandlernichols41.github.io/adjnorm-finished-images/filler_color_yellow_umbrella_pic.png
+color,white coffee mug,the mug,white,black,filler_color_white_coffee_mug_pic.png,https://chandlernichols41.github.io/adjnorm-finished-images/filler_color_white_coffee_mug_pic.png
+color,orange balloon,the balloon,orange,pink,filler_color_orange_balloon_pic.png,https://chandlernichols41.github.io/adjnorm-finished-images/filler_color_orange_balloon_pic.png
+color,green leaf,the leaf,green,brown,filler_color_green_leaf_pic.png,https://chandlernichols41.github.io/adjnorm-finished-images/filler_color_green_leaf_pic.png
+color,purple grapes,the grapes,purple,orange,filler_color_purple_grapes_pic.png,https://chandlernichols41.github.io/adjnorm-finished-images/filler_color_purple_grapes_pic.png
+color,pink rose,the rose,pink,yellow,filler_color_pink_rose_pic.png,https://chandlernichols41.github.io/adjnorm-finished-images/filler_color_pink_rose_pic.png
+color,brown teddy bear,the teddy bear,brown,gray,filler_color_brown_teddy_bear_pic.png,https://chandlernichols41.github.io/adjnorm-finished-images/filler_color_brown_teddy_bear_pic.png
+color,gray wool sweater,the sweater,gray,navy,filler_color_gray_wool_sweater_pic.png,https://chandlernichols41.github.io/adjnorm-finished-images/filler_color_gray_wool_sweater_pic.png
+color,white picket fence section,the fence,white,brown,filler_color_white_picket_fence_section_pic.png,https://chandlernichols41.github.io/adjnorm-finished-images/filler_color_white_picket_fence_section_pic.png
+color,red fire hydrant,the hydrant,red,yellow,filler_color_red_fire_hydrant_pic.png,https://chandlernichols41.github.io/adjnorm-finished-images/filler_color_red_fire_hydrant_pic.png
+color,silver bicycle helmet,the helmet,silver,blue,filler_color_silver_bicycle_helmet_pic.png,https://chandlernichols41.github.io/adjnorm-finished-images/filler_color_silver_bicycle_helmet_pic.png
+color,yellow rubber duck,the duck,yellow,orange,filler_color_yellow_rubber_duck_pic.png,https://chandlernichols41.github.io/adjnorm-finished-images/filler_color_yellow_rubber_duck_pic.png
+color,blue recycling bin,the bin,blue,green,filler_color_blue_recycling_bin_pic.png,https://chandlernichols41.github.io/adjnorm-finished-images/filler_color_blue_recycling_bin_pic.png
+color,green tennis ball,the ball,green,yellow,filler_color_green_tennis_ball_pic.png,https://chandlernichols41.github.io/adjnorm-finished-images/filler_color_green_tennis_ball_pic.png
+noun,dog,the animal,a dog,a cat,filler_noun_dog_pic.png,https://chandlernichols41.github.io/adjnorm-finished-images/filler_noun_dog_pic.png
+noun,bicycle,the vehicle,a bicycle,a scooter,filler_noun_bicycle_pic.png,https://chandlernichols41.github.io/adjnorm-finished-images/filler_noun_bicycle_pic.png
+noun,sandwich,the food,a sandwich,a salad,filler_noun_sandwich_pic.png,https://chandlernichols41.github.io/adjnorm-finished-images/filler_noun_sandwich_pic.png
+noun,backpack,the bag,a backpack,a suitcase,filler_noun_backpack_pic.png,https://chandlernichols41.github.io/adjnorm-finished-images/filler_noun_backpack_pic.png
+noun,guitar,the instrument,a guitar,a violin,filler_noun_guitar_pic.png,https://chandlernichols41.github.io/adjnorm-finished-images/filler_noun_guitar_pic.png
+noun,couch,the furniture item,a couch,a bed,filler_noun_couch_pic.png,https://chandlernichols41.github.io/adjnorm-finished-images/filler_noun_couch_pic.png
+noun,truck,the vehicle,a truck,a bus,filler_noun_truck_pic.png,https://chandlernichols41.github.io/adjnorm-finished-images/filler_noun_truck_pic.png
+noun,pizza,the food,a pizza,a cake,filler_noun_pizza_pic.png,https://chandlernichols41.github.io/adjnorm-finished-images/filler_noun_pizza_pic.png
+noun,cow,the animal,a cow,a horse,filler_noun_cow_pic.png,https://chandlernichols41.github.io/adjnorm-finished-images/filler_noun_cow_pic.png
+noun,laptop,the device,a laptop,a tablet,filler_noun_laptop_pic.png,https://chandlernichols41.github.io/adjnorm-finished-images/filler_noun_laptop_pic.png
+noun,cup of coffee,the drink,a cup of coffee,a cup of tea,filler_noun_cup_of_coffee_pic.png,https://chandlernichols41.github.io/adjnorm-finished-images/filler_noun_cup_of_coffee_pic.png
+noun,hat,the accessory,a hat,a scarf,filler_noun_hat_pic.png,https://chandlernichols41.github.io/adjnorm-finished-images/filler_noun_hat_pic.png
+noun,candle,the light source,a candle,a lightbulb,filler_noun_candle_pic.png,https://chandlernichols41.github.io/adjnorm-finished-images/filler_noun_candle_pic.png
+noun,banana,the fruit,a banana,an orange,filler_noun_banana_pic.png,https://chandlernichols41.github.io/adjnorm-finished-images/filler_noun_banana_pic.png
+noun,skateboard,the sports equipment,a skateboard,a surfboard,filler_noun_skateboard_pic.png,https://chandlernichols41.github.io/adjnorm-finished-images/filler_noun_skateboard_pic.png
+noun,wallet,the personal item,a wallet,a purse,filler_noun_wallet_pic.png,https://chandlernichols41.github.io/adjnorm-finished-images/filler_noun_wallet_pic.png
+verb,"backstroke swimmer, smiling",the swimmer,swimming,drowning,filler_verb_backstroke_swimmer_pic.png,https://chandlernichols41.github.io/adjnorm-finished-images/filler_verb_backstroke_swimmer_pic.png
+verb,person mid-air jumping a puddle,the person,jumping,falling,filler_verb_person_mid-air_jumping_a_puddle_pic.png,https://chandlernichols41.github.io/adjnorm-finished-images/filler_verb_person_mid-air_jumping_a_puddle_pic.png
+verb,person asleep in bed,the person,sleeping,exercising,filler_verb_person_asleep_in_bed_pic.png,https://chandlernichols41.github.io/adjnorm-finished-images/filler_verb_person_asleep_in_bed_pic.png
+verb,"person cross-legged, eyes closed",the person,meditating,panicking,filler_verb_person_cross-legged_pic.png,https://chandlernichols41.github.io/adjnorm-finished-images/filler_verb_person_cross-legged_pic.png
+verb,person stirring a pot at the stove,the cook,cooking,cleaning,filler_verb_person_stirring_a_pot_at_the_stove_pic.png,https://chandlernichols41.github.io/adjnorm-finished-images/filler_verb_person_stirring_a_pot_at_the_stove_pic.png
+verb,"person laughing, head back",the person,laughing,crying,filler_verb_person_laughing_pic.png,https://chandlernichols41.github.io/adjnorm-finished-images/filler_verb_person_laughing_pic.png
+verb,person painting a canvas,the painter,painting,sculpting,filler_verb_person_painting_a_canvas_pic.png,https://chandlernichols41.github.io/adjnorm-finished-images/filler_verb_person_painting_a_canvas_pic.png
+verb,person rowing a boat,the rower,rowing,fishing,filler_verb_person_rowing_a_boat_pic.png,https://chandlernichols41.github.io/adjnorm-finished-images/filler_verb_person_rowing_a_boat_pic.png
+verb,person reading an open book,the reader,reading,praying,filler_verb_person_reading_an_open_book_pic.png,https://chandlernichols41.github.io/adjnorm-finished-images/filler_verb_person_reading_an_open_book_pic.png
+verb,person mid-spin dancing,the dancer,dancing,stretching,filler_verb_person_mid-spin_dancing_pic.png,https://chandlernichols41.github.io/adjnorm-finished-images/filler_verb_person_mid-spin_dancing_pic.png
+verb,person vacuuming a carpet,the person,vacuuming,mopping,filler_verb_person_vacuuming_a_carpet_pic.png,https://chandlernichols41.github.io/adjnorm-finished-images/filler_verb_person_vacuuming_a_carpet_pic.png
+verb,person typing on a laptop,the person,typing,texting,filler_verb_person_typing_on_a_laptop_pic.png,https://chandlernichols41.github.io/adjnorm-finished-images/filler_verb_person_typing_on_a_laptop_pic.png
+verb,"person shivering, arms wrapped around self",the person,shivering,sweating,filler_verb_person_shivering_pic.png,https://chandlernichols41.github.io/adjnorm-finished-images/filler_verb_person_shivering_pic.png
+verb,person waving,the person,waving,pointing,filler_verb_person_waving_pic.png,https://chandlernichols41.github.io/adjnorm-finished-images/filler_verb_person_waving_pic.png
+verb,"person kneeling, planting a flower",the gardener,gardening,painting,filler_verb_person_kneeling_pic.png,https://chandlernichols41.github.io/adjnorm-finished-images/filler_verb_person_kneeling_pic.png
+verb,"person taking a photo, camera raised",the photographer,photographing,reading,filler_verb_person_taking_a_photo_pic.png,https://chandlernichols41.github.io/adjnorm-finished-images/filler_verb_person_taking_a_photo_pic.png
