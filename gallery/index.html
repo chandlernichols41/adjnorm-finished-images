@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1E2761">
+<title>Adjective-Image Stimuli</title>
+<style>
+:root {
+  --bg: #F7F6F3; --card: #FFFFFF; --text: #141414; --muted: #6B6A65; --line: #E1E0D9;
+  --accent: #1E2761; --weak: #2A78D6; --strong: #EB6834; --chip: #ECEBE6;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #121317; --card: #1C1E24; --text: #EDEDEA; --muted: #A09F99; --line: #2E3038;
+          --accent: #CADCFC; --weak: #6FA8F0; --strong: #F28A60; --chip: #2A2C33; }
+}
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--text);
+  font: 16px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+header { position: sticky; top: 0; z-index: 5; background: var(--bg);
+  padding: calc(env(safe-area-inset-top) + 12px) max(16px, env(safe-area-inset-right)) 10px max(16px, env(safe-area-inset-left));
+  border-bottom: 1px solid var(--line); }
+h1 { font-size: 20px; margin: 0 0 2px; letter-spacing: -0.01em; }
+.sub { color: var(--muted); font-size: 14px; margin: 0 0 10px; }
+.tabs { display: flex; background: var(--chip); border-radius: 10px; padding: 3px; gap: 3px; }
+.tabs button { flex: 1; border: 0; background: transparent; color: var(--text); font: inherit; font-size: 15px;
+  font-weight: 600; padding: 9px 6px; border-radius: 8px; min-height: 40px; cursor: pointer; }
+.tabs button[aria-selected="true"] { background: var(--card); box-shadow: 0 1px 3px rgba(0,0,0,.15); }
+.search { margin-top: 10px; width: 100%; font-size: 16px; /* 16px stops iOS zoom-on-focus */
+  padding: 10px 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--card); color: var(--text); }
+main { padding: 14px max(16px, env(safe-area-inset-right)) calc(env(safe-area-inset-bottom) + 28px) max(16px, env(safe-area-inset-left));
+  max-width: 1200px; margin: 0 auto; }
+.intro { font-size: 14px; color: var(--muted); margin: 0 0 14px; }
+.legend { display: inline-flex; gap: 14px; font-weight: 600; }
+.legend .w { color: var(--weak); } .legend .s { color: var(--strong); }
+.grid { display: grid; gap: 14px; grid-template-columns: 1fr; }
+@media (min-width: 680px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1020px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+.pair { background: var(--card); border-radius: 14px; padding: 12px; border: 1px solid var(--line); }
+.pair h2 { font-size: 17px; margin: 0 0 1px; }
+.pair h2 .arrow { color: var(--muted); font-weight: 400; margin: 0 4px; }
+.pair .noun { color: var(--muted); font-size: 13px; margin: 0 0 10px; }
+.duo { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+figure { margin: 0; }
+.ph { display: block; width: 100%; aspect-ratio: 2 / 3; border-radius: 10px; overflow: hidden;
+  background: var(--chip); border: 0; padding: 0; cursor: zoom-in; }
+.ph img { width: 100%; height: 100%; object-fit: cover; display: block; }
+figcaption { font-size: 14px; font-weight: 600; margin-top: 6px; }
+figcaption .tag { display: block; font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+.weak .tag { color: var(--weak); } .strong .tag { color: var(--strong); }
+.chips { display: flex; gap: 8px; flex-wrap: wrap; margin: 0 0 14px; }
+.chips button { border: 1px solid var(--line); background: var(--card); color: var(--text); font: inherit;
+  font-size: 14px; padding: 7px 14px; border-radius: 999px; min-height: 36px; cursor: pointer; }
+.chips button[aria-pressed="true"] { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+.fgrid { display: grid; gap: 10px; grid-template-columns: repeat(2, 1fr); }
+@media (min-width: 560px) { .fgrid { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 900px) { .fgrid { grid-template-columns: repeat(5, 1fr); } }
+.fgrid figcaption { font-weight: 400; } .fgrid figcaption b { font-weight: 700; }
+.empty { color: var(--muted); text-align: center; padding: 40px 0; }
+#lb { position: fixed; inset: 0; z-index: 20; background: rgba(0,0,0,.92); display: none;
+  flex-direction: column; align-items: center; justify-content: center;
+  padding: calc(env(safe-area-inset-top) + 52px) 12px calc(env(safe-area-inset-bottom) + 16px); }
+#lb.open { display: flex; }
+#lb img { max-width: 100%; max-height: calc(100% - 50px); object-fit: contain; border-radius: 8px; }
+#lb .cap { color: #fff; font-size: 17px; font-weight: 600; margin-top: 12px; text-align: center; }
+#lb .x { position: absolute; top: calc(env(safe-area-inset-top) + 8px); right: max(10px, env(safe-area-inset-right));
+  width: 44px; height: 44px; border-radius: 22px; border: 0; background: rgba(255,255,255,.18); color: #fff;
+  font-size: 26px; line-height: 44px; cursor: pointer; }
+body.lock { overflow: hidden; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Adjective&ndash;Image Stimuli</h1>
+  <p class="sub">Scalar Implicature &amp; Adjective-Image Norming &middot; Chandler Nichols, USC Linguistics</p>
+  <div class="tabs" role="tablist">
+    <button role="tab" id="tab-pairs" aria-selected="true">Adjective pairs</button>
+    <button role="tab" id="tab-fillers" aria-selected="false">Fillers</button>
+  </div>
+  <input class="search" id="q" type="search" placeholder="Search words (e.g. hot, angry)" autocomplete="off" autocapitalize="off" spellcheck="false">
+</header>
+<main>
+  <section id="pairs-view">
+    <p class="intro">Each scene is shown at two strengths, one for a weaker word and one for its stronger scale-mate.
+      Tap any image to enlarge. <span class="legend"><span class="w">&#9632; weaker</span><span class="s">&#9632; stronger</span></span></p>
+    <div class="grid" id="pairs"></div>
+  </section>
+  <section id="fillers-view" hidden>
+    <p class="intro">Filler items: clear-cut colors, objects, and actions mixed in with the adjective trials. Tap to enlarge.</p>
+    <div class="chips" id="chips"></div>
+    <div class="fgrid" id="fillers"></div>
+  </section>
+  <p class="empty" id="empty" hidden>No matches.</p>
+</main>
+<div id="lb" role="dialog" aria-modal="true" aria-label="Enlarged image">
+  <button class="x" aria-label="Close">&times;</button>
+  <img alt="">
+  <div class="cap"></div>
+</div>
+<script id="data" type="application/json">{"pairs": [{"weak": "affordable", "strong": "cheap", "noun": "car", "wi": "adjnorm_weak_affordable_car_pic_PC2", "si": "adjnorm_strong_cheap_car_pic_PC3"}, {"weak": "annoyed", "strong": "angry", "noun": "woman", "wi": "adjnorm_weak_annoyed_face_PC", "si": "adjnorm_strong_angry_face_pic_PS2"}, {"weak": "askew", "strong": "bent", "noun": "light pole", "wi": "adjnorm_weak_askew_rod_pic_PC3", "si": "adjnorm_strong_bent_rod_pic_PC2"}, {"weak": "attractive", "strong": "stunning", "noun": "dress", "wi": "adjnorm_weak_attractive_dress_pic_PC4", "si": "adjnorm_strong_stunning_dress_pic_PC4"}, {"weak": "big", "strong": "enormous", "noun": "basketball", "wi": "adjnorm_weak_big_ball_doorway_pic_PC2", "si": "adjnorm_strong_enormous_ball_doorway_pic_PC2"}, {"weak": "bright", "strong": "blinding", "noun": "light", "wi": "adjnorm_weak_bright_bulb_pic_PS2", "si": "adjnorm_strong_blinding_bulb_pic_PC"}, {"weak": "calm", "strong": "serene", "noun": "man", "wi": "adjnorm_weak_calm_face_chest_pic_PC", "si": "adjnorm_strong_serene_face_chest_pic_PC"}, {"weak": "chubby", "strong": "fat", "noun": "man", "wi": "adjnorm_weak_chubby_adult_pic_PS2", "si": "adjnorm_strong_fat_adult_pic_PS2"}, {"weak": "clean", "strong": "sterile", "noun": "table", "wi": "adjnorm_weak_clean_table_pic", "si": "adjnorm_strong_sterile_table_pic"}, {"weak": "content", "strong": "happy", "noun": "man", "wi": "adjnorm_weak_content_face_pic_PC", "si": "adjnorm_strong_happy_face_pic_PS2"}, {"weak": "cool", "strong": "cold", "noun": "weather", "wi": "adjnorm_weak_cool_thermometer_pic_PC3", "si": "adjnorm_strong_cold_thermometer_pic_PC3"}, {"weak": "damaged", "strong": "broken", "noun": "plate", "wi": "adjnorm_weak_damaged_plate_pic_PS2", "si": "adjnorm_strong_broken_plate_pic_PS2"}, {"weak": "damp", "strong": "wet", "noun": "carpet", "wi": "adjnorm_weak_damp_carpet_pic", "si": "adjnorm_strong_wet_carpet_pic"}, {"weak": "dirty", "strong": "filthy", "noun": "river", "wi": "adjnorm_weak_dirty_river_pic", "si": "adjnorm_strong_filthy_river_pic"}, {"weak": "dry", "strong": "parched", "noun": "plant", "wi": "adjnorm_weak_dry_plant_pic_PC2", "si": "adjnorm_strong_parched_plant_pic_PC"}, {"weak": "endangered", "strong": "extinct", "noun": "species", "wi": "adjnorm_weak_endangered_habitat_pic_PC3", "si": "adjnorm_strong_extinct_habitat_pic_PC3"}, {"weak": "fat", "strong": "obese", "noun": "man", "wi": "adjnorm_weak_fat_adult_pic_PS2", "si": "adjnorm_strong_obese_adult_pic_PS2"}, {"weak": "faulty", "strong": "nonfunctional", "noun": "computer", "wi": "adjnorm_weak_faulty_appliance_pic_PC", "si": "adjnorm_strong_nonfunctional_appliance_pic_PC"}, {"weak": "foolish", "strong": "idiotic", "noun": "man", "wi": "adjnorm_weak_foolish_clown_face_pic_PC3", "si": "adjnorm_strong_idiotic_clown_face_pic_PC3"}, {"weak": "good", "strong": "excellent", "noun": "drawing", "wi": "adjnorm_weak_good_drawing_pic_PC3", "si": "adjnorm_strong_excellent_drawing_pic_PC3"}, {"weak": "happy", "strong": "delighted", "noun": "woman", "wi": "adjnorm_weak_happy_face_pic_PS2", "si": "adjnorm_strong_delighted_face_pic_PS2"}, {"weak": "hard", "strong": "unsolvable", "noun": "puzzle", "wi": "adjnorm_weak_hard_puzzle_pic_PC3", "si": "adjnorm_strong_unsolvable_puzzle_pic_PC3"}, {"weak": "hot", "strong": "scalding", "noun": "pan", "wi": "adjnorm_weak_hot_pan_pic_PC", "si": "adjnorm_strong_scalding_pan_pic_PC"}, {"weak": "hungry", "strong": "starving", "noun": "man", "wi": "adjnorm_weak_hungry_guy_pic_PC2", "si": "adjnorm_strong_starving_guy_pic_PC2"}, {"weak": "ill", "strong": "dying", "noun": "man", "wi": "adjnorm_weak_ill_patient_pic", "si": "adjnorm_strong_dying_patient_pic"}, {"weak": "large", "strong": "gigantic", "noun": "building", "wi": "adjnorm_weak_large_building_pic_PC3", "si": "adjnorm_strong_gigantic_building_pic_PC3"}, {"weak": "loud", "strong": "defeaning", "noun": "volume", "wi": "adjnorm_weak_loud_car_display_volume_pic_PC4", "si": "adjnorm_strong_deafening_car_display_volume_pic_PC4"}, {"weak": "memorable", "strong": "unforgettable", "noun": "fireworks", "wi": "adjnorm_weak_memorable_park_fireworks_pic_PS9", "si": "adjnorm_strong_unforgettable_park_fireworks_pic_PC3"}, {"weak": "old", "strong": "ancient", "noun": "arch", "wi": "adjnorm_weak_old_fence_post_pic_PC3", "si": "adjnorm_strong_ancient_fence_post_pic_PC3"}, {"weak": "poor", "strong": "impoverished", "noun": "neighborhood", "wi": "adjnorm_weak_poor_place_pic", "si": "adjnorm_strong_impoverished_place_pic"}, {"weak": "pretty", "strong": "gorgeous", "noun": "flowers", "wi": "adjnorm_weak_pretty_flower_pic_PC2", "si": "adjnorm_strong_gorgeous_flower_pic_PC2"}, {"weak": "quiet", "strong": "inaudible", "noun": "volume", "wi": "adjnorm_weak_quiet_car_display_volume_pic_PC2", "si": "adjnorm_strong_inaudible_car_display_volume_pic_PC2"}, {"weak": "rainy", "strong": "pouring", "noun": "weather", "wi": "adjnorm_weak_rainy_rally_pic", "si": "adjnorm_strong_pouring_rally_pic"}, {"weak": "scarce", "strong": "gone", "noun": "fruit", "wi": "adjnorm_weak_scarce_fruit_bowl_pic_PS6", "si": "adjnorm_strong_gone_fruit_bowl_pic_PS6"}, {"weak": "scared", "strong": "petrified", "noun": "man", "wi": "adjnorm_weak_scared_face_shoulders_pic_PS5", "si": "adjnorm_strong_petrified_face_shoulders_pic_PS5"}, {"weak": "sick", "strong": "ill", "noun": "woman", "wi": "adjnorm_weak_sick_face_pic_PC", "si": "adjnorm_strong_ill_face_pic_PC"}, {"weak": "silly", "strong": "ridiculous", "noun": "woman", "wi": "adjnorm_weak_silly_face_pic_PS2", "si": "adjnorm_strong_ridiculous_face_pic_PS2"}, {"weak": "sleepy", "strong": "drowsy", "noun": "woman", "wi": "adjnorm_weak_sleepy_face_pic_PC", "si": "adjnorm_strong_drowsy_face_pic_PC"}, {"weak": "small", "strong": "tiny", "noun": "baseball", "wi": "adjnorm_weak_small_ball_pic_PC4", "si": "adjnorm_strong_tiny_ball_pic_PC3"}, {"weak": "snug", "strong": "cramped", "noun": "bus", "wi": "adjnorm_weak_snug_bus_pic_PC4", "si": "adjnorm_strong_cramped_bus_pic_PC4"}, {"weak": "special", "strong": "extraordinary", "noun": "trophy", "wi": "adjnorm_weak_special_trophy_pic_PC2", "si": "adjnorm_strong_extraordinary_trophy_pic_PC3"}, {"weak": "tasty", "strong": "delicious", "noun": "cupcake", "wi": "adjnorm_weak_tasty_cupcake_pic_PC2", "si": "adjnorm_strong_delicious_cupcake_pic_PC2"}, {"weak": "thin", "strong": "skinny", "noun": "man", "wi": "adjnorm_weak_thin_adult_pic_PS2", "si": "adjnorm_strong_skinny_adult_pic_PS2"}, {"weak": "tipsy", "strong": "drunk", "noun": "man", "wi": "adjnorm_weak_tipsy_face_shoulders_pic_PC2", "si": "adjnorm_strong_drunk_face_shoulders_pic_PC2"}, {"weak": "tired", "strong": "exhausted", "noun": "woman", "wi": "adjnorm_weak_tired_face_pic_PC", "si": "adjnorm_strong_exhausted_face_pic_PC"}, {"weak": "transparent", "strong": "Crystal-clear", "noun": "glass", "wi": "adjnorm_weak_transparent_glass_pic_PC4", "si": "adjnorm_strong_crystal_clear_glass_pic_PC4"}, {"weak": "unhappy", "strong": "miserable", "noun": "woman", "wi": "adjnorm_weak_unhappy_face_pic_PS6", "si": "adjnorm_strong_miserable_face_pic_PS6"}, {"weak": "unsettling", "strong": "horrific", "noun": "apple", "wi": "adjnorm_weak_unsettling_fruit_pic_PC", "si": "adjnorm_strong_horrific_fruit_pic_PC"}, {"weak": "warm", "strong": "hot", "noun": "drink", "wi": "adjnorm_weak_warm_mug_pic_PS2", "si": "adjnorm_strong_hot_mug_pic_PS2"}, {"weak": "wary", "strong": "scared", "noun": "woman", "wi": "adjnorm_weak_wary_face_shoulders_pic_PC2", "si": "adjnorm_strong_scared_face_shoulders_pic_PC2"}, {"weak": "wet", "strong": "soaked", "noun": "papers", "wi": "adjnorm_weak_wet_paperpile_pic", "si": "adjnorm_strong_soaked_paperpile_pic"}], "fillers": [{"word": "red", "noun": "apple", "cat": "color", "i": "filler_color_red_apple_pic"}, {"word": "blue", "noun": "car", "cat": "color", "i": "filler_color_blue_car_pic"}, {"word": "yellow", "noun": "umbrella", "cat": "color", "i": "filler_color_yellow_umbrella_pic"}, {"word": "white", "noun": "mug", "cat": "color", "i": "filler_color_white_coffee_mug_pic"}, {"word": "orange", "noun": "balloon", "cat": "color", "i": "filler_color_orange_balloon_pic"}, {"word": "green", "noun": "leaf", "cat": "color", "i": "filler_color_green_leaf_pic"}, {"word": "purple", "noun": "grapes", "cat": "color", "i": "filler_color_purple_grapes_pic"}, {"word": "pink", "noun": "rose", "cat": "color", "i": "filler_color_pink_rose_pic"}, {"word": "brown", "noun": "teddy bear", "cat": "color", "i": "filler_color_brown_teddy_bear_pic"}, {"word": "gray", "noun": "sweater", "cat": "color", "i": "filler_color_gray_wool_sweater_pic"}, {"word": "white", "noun": "fence", "cat": "color", "i": "filler_color_white_picket_fence_section_pic"}, {"word": "red", "noun": "hydrant", "cat": "color", "i": "filler_color_red_fire_hydrant_pic"}, {"word": "silver", "noun": "helmet", "cat": "color", "i": "filler_color_silver_bicycle_helmet_pic"}, {"word": "yellow", "noun": "duck", "cat": "color", "i": "filler_color_yellow_rubber_duck_pic"}, {"word": "blue", "noun": "bin", "cat": "color", "i": "filler_color_blue_recycling_bin_pic"}, {"word": "green", "noun": "ball", "cat": "color", "i": "filler_color_green_tennis_ball_pic"}, {"word": "a dog", "noun": "animal", "cat": "noun", "i": "filler_noun_dog_pic"}, {"word": "a bicycle", "noun": "vehicle", "cat": "noun", "i": "filler_noun_bicycle_pic"}, {"word": "a sandwich", "noun": "food", "cat": "noun", "i": "filler_noun_sandwich_pic"}, {"word": "a backpack", "noun": "bag", "cat": "noun", "i": "filler_noun_backpack_pic"}, {"word": "a guitar", "noun": "instrument", "cat": "noun", "i": "filler_noun_guitar_pic"}, {"word": "a couch", "noun": "furniture item", "cat": "noun", "i": "filler_noun_couch_pic"}, {"word": "a truck", "noun": "vehicle", "cat": "noun", "i": "filler_noun_truck_pic"}, {"word": "a pizza", "noun": "food", "cat": "noun", "i": "filler_noun_pizza_pic"}, {"word": "a cow", "noun": "animal", "cat": "noun", "i": "filler_noun_cow_pic"}, {"word": "a laptop", "noun": "device", "cat": "noun", "i": "filler_noun_laptop_pic"}, {"word": "a cup of coffee", "noun": "drink", "cat": "noun", "i": "filler_noun_cup_of_coffee_pic"}, {"word": "a hat", "noun": "accessory", "cat": "noun", "i": "filler_noun_hat_pic"}, {"word": "a candle", "noun": "light source", "cat": "noun", "i": "filler_noun_candle_pic"}, {"word": "a banana", "noun": "fruit", "cat": "noun", "i": "filler_noun_banana_pic"}, {"word": "a skateboard", "noun": "sports equipment", "cat": "noun", "i": "filler_noun_skateboard_pic"}, {"word": "a wallet", "noun": "personal item", "cat": "noun", "i": "filler_noun_wallet_pic"}, {"word": "swimming", "noun": "swimmer", "cat": "verb", "i": "filler_verb_backstroke_swimmer_pic"}, {"word": "jumping", "noun": "person", "cat": "verb", "i": "filler_verb_person_mid-air_jumping_a_puddle_pic"}, {"word": "sleeping", "noun": "person", "cat": "verb", "i": "filler_verb_person_asleep_in_bed_pic"}, {"word": "meditating", "noun": "person", "cat": "verb", "i": "filler_verb_person_cross-legged_pic"}, {"word": "cooking", "noun": "cook", "cat": "verb", "i": "filler_verb_person_stirring_a_pot_at_the_stove_pic"}, {"word": "laughing", "noun": "person", "cat": "verb", "i": "filler_verb_person_laughing_pic"}, {"word": "painting", "noun": "painter", "cat": "verb", "i": "filler_verb_person_painting_a_canvas_pic"}, {"word": "rowing", "noun": "rower", "cat": "verb", "i": "filler_verb_person_rowing_a_boat_pic"}, {"word": "reading", "noun": "reader", "cat": "verb", "i": "filler_verb_person_reading_an_open_book_pic"}, {"word": "dancing", "noun": "dancer", "cat": "verb", "i": "filler_verb_person_mid-spin_dancing_pic"}, {"word": "vacuuming", "noun": "person", "cat": "verb", "i": "filler_verb_person_vacuuming_a_carpet_pic"}, {"word": "typing", "noun": "person", "cat": "verb", "i": "filler_verb_person_typing_on_a_laptop_pic"}, {"word": "shivering", "noun": "person", "cat": "verb", "i": "filler_verb_person_shivering_pic"}, {"word": "waving", "noun": "person", "cat": "verb", "i": "filler_verb_person_waving_pic"}, {"word": "gardening", "noun": "gardener", "cat": "verb", "i": "filler_verb_person_kneeling_pic"}, {"word": "photographing", "noun": "photographer", "cat": "verb", "i": "filler_verb_person_taking_a_photo_pic"}]}</script>
+<script>
+const D = JSON.parse(document.getElementById('data').textContent);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const img = (stem, alt) =>
+  `<button class="ph" data-l="l/${stem}.jpg" data-cap="${esc(alt)}"><img src="t/${stem}.jpg" alt="${esc(alt)}" width="420" height="630" loading="lazy" decoding="async"></button>`;
+
+document.getElementById('pairs').innerHTML = D.pairs.map(p => `
+  <article class="pair" data-k="${esc((p.weak + ' ' + p.strong + ' ' + p.noun).toLowerCase())}">
+    <h2>${esc(p.weak)}<span class="arrow">&rarr;</span>${esc(p.strong)}</h2>
+    <p class="noun">${esc(p.noun)}</p>
+    <div class="duo">
+      <figure class="weak">${img(p.wi, p.weak)}<figcaption><span class="tag">weaker</span>${esc(p.weak)}</figcaption></figure>
+      <figure class="strong">${img(p.si, p.strong)}<figcaption><span class="tag">stronger</span>${esc(p.strong)}</figcaption></figure>
+    </div>
+  </article>`).join('');
+
+document.getElementById('fillers').innerHTML = D.fillers.map(f => `
+  <figure data-cat="${f.cat}" data-k="${esc((f.word + ' ' + f.noun).toLowerCase())}">
+    ${img(f.i, f.word + ' (' + f.noun + ')')}
+    <figcaption><b>${esc(f.word)}</b> &middot; ${esc(f.noun)}</figcaption>
+  </figure>`).join('');
+
+const cats = [['all', 'All'], ['color', 'Colors'], ['noun', 'Objects'], ['verb', 'Actions']];
+let cat = 'all';
+document.getElementById('chips').innerHTML = cats.map(([k, l]) =>
+  `<button data-c="${k}" aria-pressed="${k === 'all'}">${l}</button>`).join('');
+document.getElementById('chips').addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  cat = b.dataset.c;
+  document.querySelectorAll('#chips button').forEach(x => x.setAttribute('aria-pressed', x === b));
+  filter();
+});
+
+let view = 'pairs';
+function setView(v) {
+  view = v;
+  document.getElementById('tab-pairs').setAttribute('aria-selected', v === 'pairs');
+  document.getElementById('tab-fillers').setAttribute('aria-selected', v === 'fillers');
+  document.getElementById('pairs-view').hidden = v !== 'pairs';
+  document.getElementById('fillers-view').hidden = v !== 'fillers';
+  filter(); window.scrollTo(0, 0);
+}
+document.getElementById('tab-pairs').onclick = () => setView('pairs');
+document.getElementById('tab-fillers').onclick = () => setView('fillers');
+
+const q = document.getElementById('q');
+function filter() {
+  const t = q.value.trim().toLowerCase();
+  let n = 0;
+  const sel = view === 'pairs' ? '#pairs .pair' : '#fillers figure';
+  document.querySelectorAll(sel).forEach(el => {
+    const ok = (!t || el.dataset.k.includes(t)) && (view === 'pairs' || cat === 'all' || el.dataset.cat === cat);
+    el.hidden = !ok; if (ok) n++;
+  });
+  document.getElementById('empty').hidden = n > 0;
+}
+q.addEventListener('input', filter);
+
+// Lightbox: back button / swipe-back closes it on Android and iOS
+const lb = document.getElementById('lb'), lbImg = lb.querySelector('img'), lbCap = lb.querySelector('.cap');
+document.addEventListener('click', e => {
+  const b = e.target.closest('.ph'); if (!b) return;
+  lbImg.src = b.dataset.l; lbImg.alt = b.dataset.cap; lbCap.textContent = b.dataset.cap;
+  lb.classList.add('open'); document.body.classList.add('lock');
+  history.pushState({lb: 1}, '');
+});
+function closeLb() { lb.classList.remove('open'); document.body.classList.remove('lock'); lbImg.removeAttribute('src'); }
+lb.addEventListener('click', () => { if (history.state && history.state.lb) history.back(); else closeLb(); });
+window.addEventListener('popstate', closeLb);
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && lb.classList.contains('open')) lb.click(); });
+</script>
+</body>
+</html>
